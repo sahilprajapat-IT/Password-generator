@@ -33,7 +33,7 @@ public class PasswordToolGUI {
         JCheckBox upper = new JCheckBox("Include uppercase (A-Z)");
         JCheckBox digits = new JCheckBox("Include digits (0-9)");
         JCheckBox symbols = new JCheckBox("Include symbols (!@#$...)");
-        JButton generateBtn = new JButton("🎲 Generate");
+        JButton generateBtn = new JButton("Generate");
         JTextField output = new JTextField();
         output.setEditable(false);
         JButton copyBtn = new JButton("📋 Copy");
@@ -64,7 +64,7 @@ public class PasswordToolGUI {
                 }
 
                 if (pool.isEmpty()) {
-                    output.setText("⚠️ Select at least one character type.");
+                    output.setText("Select at least one character type.");
                     return;
                 }
 
@@ -74,14 +74,14 @@ public class PasswordToolGUI {
                 }
                 output.setText(pass.toString());
             } catch (NumberFormatException ex) {
-                output.setText("❌ Invalid length");
+                output.setText("Invalid length");
             }
         });
 
         copyBtn.addActionListener(e -> {
             StringSelection selection = new StringSelection(output.getText());
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
-            JOptionPane.showMessageDialog(panel, "Password copied to clipboard! ✅");
+            JOptionPane.showMessageDialog(panel, "Password copied to clipboard! ");
         });
 
         return panel;
@@ -93,7 +93,7 @@ public class PasswordToolGUI {
         panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
         JPasswordField input = new JPasswordField();
-        JButton checkBtn = new JButton("🔍 Check Strength");
+        JButton checkBtn = new JButton("Check Strength");
         JLabel result = new JLabel("Type a password and press check");
         result.setHorizontalAlignment(SwingConstants.CENTER);
 
